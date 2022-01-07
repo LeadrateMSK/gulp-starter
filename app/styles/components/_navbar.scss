@@ -1,0 +1,13 @@
+.navbar {
+  position: relative;
+  z-index: 10;
+  
+  &__title {
+    display: block;
+    text-align: center;
+    font-size: rem(14px);
+    padding: 50px 0;
+    color: $grey;
+    margin-bottom: 0;
+  }
+}

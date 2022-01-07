@@ -1,0 +1,88 @@
+$gap: 30px;
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1320px;
+  padding-left: calc(#{$gap} / 2);
+  padding-right: calc(#{$gap} / 2);
+  margin: auto;
+
+  @media (max-width: #{map-get($breakpoints, xl)}) {
+    max-width: #{map-get($breakpoints, lg)};
+  }
+
+  @media (max-width: #{map-get($breakpoints, lg)}) {
+    max-width: #{map-get($breakpoints, md)};
+  }
+
+  @media (max-width: #{map-get($breakpoints, md)}) {
+    max-width: #{map-get($breakpoints, sm)};
+  }
+
+  @media (max-width: #{map-get($breakpoints, sm)}) {
+    max-width: #{map-get($breakpoints, xs)};
+  }
+}
+
+@for $i from 1 through 12 {
+  .cols-#{$i} {
+    @include create-col(#{$i}, #{$gap}, 0);
+  }
+}
+
+@for $i from 1 through 12 {
+  .cols-retina-#{$i} {
+    @media (min-width: map-get($breakpoints, xxl)) and (max-width: map-get($breakpoints, retina)) {
+      @include create-col(#{$i}, #{$gap}, 0);
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .cols-xxl-#{$i} {
+    @media (min-width: map-get($breakpoints, xl)) and (max-width: map-get($breakpoints, xxl)) {
+      @include create-col(#{$i}, #{$gap}, 0);
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .cols-xl-#{$i} {
+    @media (min-width: map-get($breakpoints, lg)) and (max-width: map-get($breakpoints, xl)) {
+      @include create-col(#{$i}, #{$gap}, 0);
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .cols-lg-#{$i} {
+    @media (min-width: map-get($breakpoints, md)) and (max-width: map-get($breakpoints, lg)) {
+      @include create-col(#{$i}, #{$gap}, 0);
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .cols-md-#{$i} {
+    @media (min-width: map-get($breakpoints, sm)) and (max-width: map-get($breakpoints, md)) {
+      @include create-col(#{$i}, #{$gap}, 0);
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .cols-sm-#{$i} {
+    @media (min-width: map-get($breakpoints, xs)) and (max-width: map-get($breakpoints, sm)) {
+      @include create-col(#{$i}, #{$gap}, 0);
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .cols-xs-#{$i} {
+    @media (max-width: map-get($breakpoints, xs)) {
+      @include create-col(#{$i}, #{$gap}, 0);
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.swiper {
+  &-slide {
+    background-color: $dark;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-pagination {
+    &-bullet {
+      background-color: $grey;
+    }
+  }
+}
+
+[class*="swiper-button"] {
+  &:after {
+    font-size: rem(18px);
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    background-color: rgba(#000, .8);
+    opacity: .4;
+    transition: all .09s ease-out;
+  }
+
+  &:hover:after {
+    opacity: 1;
+  }
+}

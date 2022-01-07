@@ -1,0 +1,21 @@
+@use "sass:math";
+
+/**
+ * PX to VW
+ * @param  float $px-vw - пиксели, которые преобразуем в vw
+ * @param  float $base-vw: xl - ширина экрана по-умолчанию
+ * @return float - значение vw
+ */
+@function vw($px-vw, $base-vw: #{map-get($breakpoints, xl)}) {
+  @return ($px-vw * 100vw) / $base-vw;
+}
+
+
+/**
+ * PX to REM
+ * @param  int $px-rem - пиксели, которые преобразуем в rem
+ * @return float - значение rem
+ */
+@function rem($px-rem) {
+  @return math.div($px-rem, 16px) + rem;
+}

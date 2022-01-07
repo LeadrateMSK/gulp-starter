@@ -1,0 +1,23 @@
+.content {
+  position: relative;
+  padding: 50px 0;
+
+  &__title {
+    display: block;
+    text-align: center;
+    color: #4caf50;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    background-color: $dark;
+  }
+
+  &__subtitle {
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  &__label {
+    color: $grey;
+    margin-bottom: 20px;
+  }
+}
