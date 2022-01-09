@@ -24,7 +24,7 @@ body {
   background-color: $black;
   overflow-x: hidden;
   height: auto;
-  min-width: #{map-get($breakpoints, xxs)};
+  min-width: #{screen(xxs)};
 }
 
 h1,

@@ -19,3 +19,13 @@
 @function rem($px-rem) {
   @return math.div($px-rem, 16px) + rem;
 }
+
+
+/**
+ * Helper for @media
+ * @param $breakpoint - ключ из массива $breakpoints
+ * @return значение ключа массива
+ */
+@function screen($breakpoint) {
+  @return map-get($breakpoints, $breakpoint);
+}
