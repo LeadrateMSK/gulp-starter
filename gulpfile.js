@@ -19,6 +19,7 @@ import cssnano       from 'cssnano'
 import autoprefixer  from 'autoprefixer'
 import concat        from 'gulp-concat'
 import del           from 'del'
+import sourcemaps    from 'gulp-sourcemaps'
 import ftp           from 'vinyl-ftp'
 import gutil         from 'gulp-util'
 
@@ -31,12 +32,12 @@ function browsersync() {
 		ghostMode: { clicks: false },
 		notify: false,
 		online: true,
-		// tunnel: 'yousutename', // Attempt to use the URL https://yousutename.loca.lt
 	})
 }
 
 function scripts() {
 	return src(['app/js/*.js', '!app/js/*.min.js'])
+		.pipe(sourcemaps.init())
 		.pipe(webpackStream({
 			mode: 'production',
 			performance: { hints: false },
@@ -71,12 +72,14 @@ function scripts() {
 			this.emit('end')
 		})
 		.pipe(concat('app.min.js'))
+		.pipe(sourcemaps.write())
 		.pipe(dest('app/js'))
 		.pipe(browserSync.stream())
 }
 
 function styles() {
 	return src([`app/styles/*.*`, `!app/styles/_*.*`, `!app/styles/components/_*.*`])
+		.pipe(sourcemaps.init())
 		.pipe(eval(`${preprocessor}glob`)())
 		.pipe(eval(preprocessor)({ 'include css': true }))
 		.pipe(postCss([
@@ -84,6 +87,7 @@ function styles() {
 			cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
 		]))
 		.pipe(concat('app.min.css'))
+		.pipe(sourcemaps.write())
 		.pipe(dest('app/css'))
 		.pipe(browserSync.stream())
 }
@@ -91,8 +95,7 @@ function styles() {
 function buildcopy() {
 	return src([
 		'{app/js,app/css}/*.min.*',
-		'app/images/**/*.*',
-		'!app/images/src/**/*',
+		'app/img/**/*.*',
 		'app/fonts/**/*'
 	], { base: 'app/' })
 		.pipe(dest('dist'))
@@ -111,7 +114,7 @@ async function cleandist() {
 function startwatch() {
 	watch(`app/styles/**/*`, { usePolling: true }, styles)
 	watch(['app/js/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts)
-	watch('app/images/src/**/*', { usePolling: true })
+	watch('app/img/src/**/*', { usePolling: true })
 	watch(`app/**/*.{${fileswatch}}`, { usePolling: true }).on('change', browserSync.reload)
 }
 
