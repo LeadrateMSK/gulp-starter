@@ -1,13 +1,78 @@
 .footer {
   position: relative;
   z-index: 10;
+  background-color:  #0F0F0F;
+  color: #CDCDCD;
+  padding: 45px 0;
+  letter-spacing: 0.02em;
+  font-style: normal;
+  line-height: 130%;
 
-  &__title {
-    display: block;
-    text-align: center;
-    font-size: rem(14px);
-    padding: 50px 0;
-    color: $grey;
-    margin-bottom: 0;
+  &__content{
+    display: flex;
+    @media(max-width: screen(sm)){
+     flex-direction: column;
+      &>div{
+        width: 100%;
+        margin: 0;
+      }
+    }
+  }
+
+  &__separator{
+    width: 100%;
+    height: 1px;
+    background-color: #333333;
+    margin: 20px 0;
+  }
+
+  &__contacts{
+    width: 35%;
+
+    &_title{
+      font-weight: 400;
+      font-size: rem(16px);
+    }
+    &_mail{
+      margin-top: 5px;
+      font-weight: 500;
+      font-size: rem(18px);
+      color: #FFFFFF;
+    }
+    &_copyright{
+      font-weight: 500;
+      font-size: rem(15px);
+      margin-top: 60px;
+      @media(max-width: screen(sm)){
+        margin-top: 16px;
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid #333333;
+      }
+    }
+  }
+
+  &__info{
+    margin-left: 120px;
+    font-weight: 400;
+    font-size: rem(16px);
+    @media(max-width: screen(xs)){
+      font-size: rem(14px);
+    }
+    p{
+      margin: 0;
+    }
+    &_title{
+      font-weight: 500;
+      font-size: rem(16px);
+      margin-bottom: 20px;
+    }
+    .privacyPolicy{
+      font-weight: 500;
+      font-size: rem(18px);
+      color: #4D4D4D;
+      margin-top: 20px;
+      text-decoration: underline;
+    }
   }
 }
