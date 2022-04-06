@@ -1,9 +1,4 @@
-let preprocessor = 'sass',
-	fileswatch   = 'html,htm,txt,json,md,woff2' // List of files extensions for watching & hard reload
-
 import pkg from 'gulp'
-const { gulp, src, dest, parallel, series, watch } = pkg
-
 import browserSync   from 'browser-sync'
 import bssi          from 'browsersync-ssi'
 import ssi           from 'ssi'
@@ -13,7 +8,6 @@ import TerserPlugin  from 'terser-webpack-plugin'
 import gulpSass      from 'gulp-sass'
 import dartSass      from 'sass'
 import sassglob      from 'gulp-sass-glob'
-const  sass          = gulpSass(dartSass)
 import postCss       from 'gulp-postcss'
 import cssnano       from 'cssnano'
 import autoprefixer  from 'autoprefixer'
@@ -22,6 +16,19 @@ import del           from 'del'
 import sourcemaps    from 'gulp-sourcemaps'
 import ftp           from 'vinyl-ftp'
 import gutil         from 'gulp-util'
+
+const stylePreprocessor = 'sass'
+const fileswatch = 'html,htm,txt,json,md,woff2' // List of files extensions for watching & hard reload
+const sass = gulpSass(dartSass)
+
+const {
+	gulp,
+	src,
+	dest,
+	parallel,
+	series,
+	watch
+} = pkg
 
 function browsersync() {
 	browserSync.init({
@@ -80,8 +87,8 @@ function scripts() {
 function styles() {
 	return src([`app/styles/*.*`, `!app/styles/_*.*`, `!app/styles/components/_*.*`])
 		.pipe(sourcemaps.init())
-		.pipe(eval(`${preprocessor}glob`)())
-		.pipe(eval(preprocessor)({ 'include css': true }))
+		.pipe(eval(`${stylePreprocessor}glob`)())
+		.pipe(eval(stylePreprocessor)({ 'include css': true }))
 		.pipe(postCss([
 			autoprefixer({ grid: true }),
 			cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
