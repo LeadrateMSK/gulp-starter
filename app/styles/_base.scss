@@ -14,15 +14,15 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  //overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 body {
   font-family: $userfont;
   line-height: 100%;
-  color: $mainTextColor;
-  background-color: $mainBackground;
-  //overflow-x: hidden;
+  color: $white;
+  background-color: $black;
+  overflow-x: hidden;
   height: auto;
   min-width: #{screen(xxs)};
 }
@@ -39,7 +39,7 @@ a:active, /* активная/посещенная ссылка */
 a:hover,  /* при наведении */
 a {
   text-decoration: none;
-  color: #4D4D4D;
+  color: $white;
 }
 
 button {

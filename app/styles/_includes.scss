@@ -3,31 +3,4 @@
 @import 'node_modules/swiper/swiper-bundle.min';
 
 // Шрифты
-@import 'fonts';
-
-/* begin begin Back to Top button  */
-.back_to_top {
-    background: #000000 url("/img/icons/to_top.svg") no-repeat center;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.08);
-    border-radius: 50%;
-    position: fixed;
-    bottom: 80px;
-    right: vw(390px, screen(xxl));
-    z-index: 9999;
-    width: 56px;
-    height: 56px;
-    cursor: pointer;
-    display: none;
-    @media(max-width: screen(md)){
-        right: vw(40px, screen(md));
-    }
-}
-.back_to_top-show {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @media(max-width: screen(sm)){
-        display: none;
-    }
-}
-/* end begin Back to Top button  */
+@import '../fonts/Circe/stylesheet.css';

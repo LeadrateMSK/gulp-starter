@@ -1,5 +1,4 @@
 @use "sass:math";
-@import "vars";
 
 /**
  * PX to VW
@@ -8,8 +7,7 @@
  * @return float - значение vw
  */
 @function vw($px-vw, $base-vw: #{map-get($breakpoints, xl)}) {
-  //@return ($px-vw * 100vw) / $base-vw;
-  @return math.div($px-vw * 100vw, $base-vw);
+  @return ($px-vw * 100vw) / $base-vw;
 }
 
 

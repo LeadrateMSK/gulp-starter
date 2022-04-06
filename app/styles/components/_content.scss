@@ -1,112 +1,23 @@
-body {
-  position: relative;
-}
-
 .content {
   position: relative;
-
-  &__articles {
-    padding: 70px 0;
-    @media(max-width: 600px){
-      padding: 50px 0;
-
-    }
-  }
+  padding: 50px 0;
 
   &__title {
+    display: block;
     text-align: center;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 130%;
-    letter-spacing: 0.02em;
-    color: #000000;
-    margin-bottom: 50px;
-    font-size: rem(32px);
-    @media(max-width: 600px){
-      font-size: rem(24px);
-      margin-bottom: 32px;
-    }
+    color: #4caf50;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    background-color: $dark;
   }
 
-  .article{
-    margin-bottom: 50px;
-    display: flex;
-    @media(max-width: screen(sm)){
-      flex-direction: column;
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }
-    &>div {
-      @media(max-width: screen(sm)){
-        width: 100%;
-      }
-    }
-    &__textContent{
-      padding-right: vw(85px, screen(xxl));
-      min-width: calc(100% - 550px);
-      width: calc(100% - #{vw(550px, screen(xxl))});
-    }
-    &__img{
-      max-width: 550px;
-      width: vw(550px, screen(xxl));
-      height: vw(550px*0.6545, screen(xxl));
-      @media(max-width: screen(sm)){
-        padding-left: 0;
-        width: 100%;
-        order: -1;
-        margin-bottom: 24px;
-        height: (screen(xs) - 30px) * 0.6545;
-      }
-      @media(max-width: screen(xs)){
-        height: 65.45vw;
-      }
-    }
-    &__title{
-      font-style: normal;
-      font-weight: 700;
-      font-size: rem(24px);
-      line-height: 130%;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      color: #111111;
-    }
-    &__shortText{
-      font-style: normal;
-      font-weight: 500;
-      font-size: rem(20px);
-      line-height: 130%;
-      letter-spacing: 0.02em;
-      color: #111111;
-      margin: 23px 0 29px 0;
-      @media(max-width: screen(sm)){
-        font-size: rem(18px);
-        margin: 20px 0 24px 0;
-      }
-    }
-    &__button-readMore{
-      display: flex;
-      align-items: center;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 130%;
-      letter-spacing: 0.02em;
-      color: #4D4D4D;
-      transition: .5s;
-      &>div{
-        margin-left: 8px;
-        width: 14px;
-        height: 14px;
-        background: url("/img/icons/readMore.svg") no-repeat right center;
-      }
-       &:hover{
-         transition: .5s;
-         text-decoration: underline;
-         &>div{
-           transform: rotate(45deg);
-         }
-       }
-    }
+  &__subtitle {
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  &__label {
+    color: $grey;
+    margin-bottom: 20px;
   }
 }
