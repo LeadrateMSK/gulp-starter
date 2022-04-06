@@ -37,23 +37,36 @@ function browsersync() {
 
 function scripts() {
 	return src(['app/js/*.js', '!app/js/*.min.js'])
-		.pipe(sourcemaps.init())
 		.pipe(webpackStream({
 			mode: 'production',
 			performance: { hints: false },
+			devtool: 'eval-cheap-source-map',
 			plugins: [
 				// new webpack.ProvidePlugin({ ... }),
 			],
 			module: {
 				rules: [
 					{
-						test: /\.m?js$/,
-						exclude: /(node_modules)/,
+						test: /\.js$/,
+						exclude: /node_modules/,
+						type: 'javascript/auto',
 						use: {
 							loader: 'babel-loader',
 							options: {
-								presets: ['@babel/preset-env'],
-								plugins: ['babel-plugin-root-import']
+								presets: [
+									[
+										'@babel/preset-env',
+										{
+											"useBuiltIns": "usage",
+											"corejs": "3.0.0"
+										}
+									]
+								],
+								plugins: [
+									'@babel/plugin-syntax-dynamic-import',
+									'@babel/plugin-proposal-class-properties'
+								],
+								sourceMap: true,
 							}
 						}
 					}
@@ -72,7 +85,6 @@ function scripts() {
 			this.emit('end')
 		})
 		.pipe(concat('app.min.js'))
-		.pipe(sourcemaps.write())
 		.pipe(dest('app/js'))
 		.pipe(browserSync.stream())
 }
