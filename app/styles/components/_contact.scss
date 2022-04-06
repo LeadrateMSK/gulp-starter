@@ -1,0 +1,26 @@
+h3{
+    font-style: normal;
+    font-weight: 700;
+    font-size: rem(26px);
+    line-height: 130%;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #111111;
+    margin-top: 50px;
+}
+.mail {
+    font-style: normal;
+    font-weight: 500;
+    font-size: rem(18px);
+    line-height: 130%;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #111111;
+    margin-top: 25px;
+    span:first-child{
+        margin-right: 30px;
+    }
+    a{
+        text-decoration-line: underline;
+    }
+}
