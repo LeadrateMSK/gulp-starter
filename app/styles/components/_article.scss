@@ -1,0 +1,80 @@
+@import "../functions";
+.singleArticle{
+    &__mainImg{
+        height: vw(770px, map-get($breakpoints, xxl));
+        background-size: cover !important;
+        @media(max-width: screen(sm)){
+            height: 147.33vw;
+        }
+        h1{
+            font-style: normal;
+            font-weight: 700;
+            font-size: rem(42px);
+            line-height: 130%;
+            letter-spacing: 0.02em;
+            color: #FFFFFF;
+            margin-bottom: vw(60px, map-get($breakpoints, xxl));
+            @media(max-width: screen(sm)){
+                font-size: rem(24px);
+                width: 70%;
+            }
+            @media(max-width: 375px){
+                font-size: rem(24px);
+                width: 100%;
+            }
+        }
+        .container{
+            display: flex;
+            height: 100%;
+            align-items: flex-end;
+        }
+    }
+    &__textContent{
+        padding: 0 0 90px 0;
+        width: 880px;
+        color: #161616;
+        @media(max-width: screen(md)){
+            width: 100%;
+        }
+        p{
+            margin-top: 20px;
+            margin-bottom: 0;
+            font-weight: 400;
+            font-size: rem(18px);
+            font-style: normal;
+            line-height: 130%;
+            letter-spacing: 0.02em;
+            &:first-child{
+                margin-top: 0;
+            }
+        }
+        h2{
+            margin-top: 40px;
+            font-weight: 600;
+            font-size: rem(18px);
+            font-style: normal;
+            line-height: 130%;
+            letter-spacing: 0.02em;
+        }
+    }
+    .breadCrumbs {
+        margin: 50px 0;
+        font-size: rem(16px);
+        &>span:first-child a{
+            font-weight: 500;
+            color: #AFAFAF;
+        }
+        &>span:last-child{
+            font-weight: 700;
+            color: #484848;
+        }
+        @media(max-width: screen(sm)){
+            margin: 32px 0;
+            font-size: rem(14px);
+        }
+        @media(max-width: screen(xxs)){
+            margin: 24px 0;
+            font-size: rem(12px);
+        }
+    }
+}
