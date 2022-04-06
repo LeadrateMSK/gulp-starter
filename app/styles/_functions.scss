@@ -29,3 +29,18 @@
 @function screen($breakpoint) {
   @return map-get($breakpoints, $breakpoint);
 }
+
+
+/**
+ * Helper for @function screen
+ */
+@function maxScreen($breakpoint) {
+  @return "max-width: " + screen($breakpoint);
+}
+
+/**
+ * Helper for @function screen
+ */
+@function minScreen($breakpoint) {
+  @return "min-width: " + (screen($breakpoint) + 1px);
+}

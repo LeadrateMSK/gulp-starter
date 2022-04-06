@@ -6,3 +6,5 @@
 /**/debug.log
 .idea
 /dist
+app.min.css
+app.min.js
