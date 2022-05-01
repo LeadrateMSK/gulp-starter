@@ -110,17 +110,17 @@ function buildcopy() {
 		'app/img/**/*.*',
 		'app/fonts/**/*'
 	], { base: 'app/' })
-		.pipe(dest('dist'))
+		.pipe(dest('public'))
 }
 
 async function buildhtml() {
-	let includes = new ssi('app/', 'dist/', '/**/*.html')
+	let includes = new ssi('app/', 'public/', '/**/*.html')
 	includes.compile()
-	del('dist/parts', { force: true })
+	del('public/parts', { force: true })
 }
 
-async function cleandist() {
-	del('dist/**/*', { force: true })
+async function cleanpublic() {
+	del('public/**/*', { force: true })
 }
 
 function startwatch() {
@@ -147,15 +147,15 @@ function startwatch() {
 	} );
 
 	let globs = [
-		'dist/!**',
+		'public/!**',
 	];
 
 	return src(globs, { base: '.', buffer: false })
-		.pipe( conn.newer( '/dist' ) )
-		.pipe( conn.dest( '/www/test.rah-emil.ru' ) );
+		.pipe( conn.newer( '/public' ) )
+		.pipe( conn.dest( '/www/test.ru' ) );
 }*/
 
 export { scripts, styles }
 export let assets = series(scripts, styles)
-export let build = series(cleandist, scripts, styles, buildcopy, buildhtml)
+export let build = series(cleanpublic, scripts, styles, buildcopy, buildhtml)
 export default series(scripts, styles, parallel(browsersync, startwatch))
