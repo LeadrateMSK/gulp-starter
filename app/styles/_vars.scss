@@ -1,5 +1,10 @@
-// FONTS
-$userfont: 'Circe', sans-serif;
+// DEFAULT VALUES
+$font-family-base: 'Circe', sans-serif;
+$font-size-base: 16px;
+$line-height-base: 115%;
+$box-sizing-base: border-box;
+$transition-base: all 150ms ease-out;
+$enable-smooth-scroll: true;
 
 
 // COLORS
@@ -9,15 +14,26 @@ $dark: #22252D;
 $primary: #4069FF;
 $grey: rgba($white, .4);
 
+$theme-colors: (
+    "white": $white,
+    "black": $black,
+    "dark": $dark,
+    "primary": $primary,
+    "grey": $grey,
+);
 
-// BREAKPOINTS
+
+// GRID
+$grid-gap-column: 30px;
+$grid-gap-row: 0;
+
 $breakpoints: (
-  retina: 2560px,
-  xxl: 1920px,
-  xl: 1440px,
-  lg: 1200px,
-  md: 1024px,
-  sm: 768px,
-  xs: 576px,
-  xxs: 280px
+    retina: 2560px,
+    xxl: 1920px,
+    xl: 1440px,
+    lg: 1200px,
+    md: 1024px,
+    sm: 768px,
+    xs: 576px,
+    xxs: 280px
 );

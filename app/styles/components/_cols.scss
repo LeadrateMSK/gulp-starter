@@ -1,0 +1,65 @@
+@use "../vars";
+@use "../mixins";
+@use "../functions";
+
+@for $i from 1 through 12 {
+    .cols-#{$i} {
+        @include mixins.create-col(#{$i}, #{vars.$grid-gap-column}, #{vars.$grid-gap-row});
+    }
+}
+
+@for $i from 1 through 12 {
+    .cols-retina-#{$i} {
+        @media (#{ functions.maxScreen(retina) }) {
+            @include mixins.create-col(#{$i}, #{vars.$grid-gap-column}, #{vars.$grid-gap-row});
+        }
+    }
+}
+
+@for $i from 1 through 12 {
+    .cols-xxl-#{$i} {
+        @media (#{ functions.maxScreen(xxl) }) {
+            @include mixins.create-col(#{$i}, #{vars.$grid-gap-column}, #{vars.$grid-gap-row});
+        }
+    }
+}
+
+@for $i from 1 through 12 {
+    .cols-xl-#{$i} {
+        @media (#{ functions.maxScreen(xl) }) {
+            @include mixins.create-col(#{$i}, #{vars.$grid-gap-column}, #{vars.$grid-gap-row});
+        }
+    }
+}
+
+@for $i from 1 through 12 {
+    .cols-lg-#{$i} {
+        @media (#{ functions.maxScreen(lg) }) {
+            @include mixins.create-col(#{$i}, #{vars.$grid-gap-column}, #{vars.$grid-gap-row});
+        }
+    }
+}
+
+@for $i from 1 through 12 {
+    .cols-md-#{$i} {
+        @media (#{ functions.maxScreen(md) }) {
+            @include mixins.create-col(#{$i}, #{vars.$grid-gap-column}, #{vars.$grid-gap-row});
+        }
+    }
+}
+
+@for $i from 1 through 12 {
+    .cols-sm-#{$i} {
+        @media (#{ functions.maxScreen(sm) }) {
+            @include mixins.create-col(#{$i}, #{vars.$grid-gap-column}, #{vars.$grid-gap-row});
+        }
+    }
+}
+
+@for $i from 1 through 12 {
+    .cols-xs-#{$i} {
+        @media (#{ functions.maxScreen(xs) }) {
+            @include mixins.create-col(#{$i}, #{vars.$grid-gap-column}, #{vars.$grid-gap-row});
+        }
+    }
+}

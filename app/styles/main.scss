@@ -3,4 +3,11 @@
 @import "mixins";
 @import "includes";
 @import "base";
-@import "components/**/*";
+
+// COMPONENTS (sort by A-Z)
+@import "components/cols";
+@import "components/container";
+@import "components/content";
+@import "components/footer";
+@import "components/navbar";
+@import "components/swiper";

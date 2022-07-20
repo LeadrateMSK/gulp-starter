@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "vars";
 
 /**
  * PX to VW
@@ -6,8 +7,8 @@
  * @param  float $base-vw: xl - ширина экрана по-умолчанию
  * @return float - значение vw
  */
-@function vw($px-vw, $base-vw: #{map-get($breakpoints, xl)}) {
-  @return ($px-vw * 100vw) / $base-vw;
+@function vw($px-vw, $base-vw: #{map-get(vars.$breakpoints, xl)}) {
+    @return ($px-vw * 100vw) / $base-vw;
 }
 
 
@@ -17,17 +18,17 @@
  * @return float - значение rem
  */
 @function rem($px-rem) {
-  @return math.div($px-rem, 16px) + rem;
+    @return math.div($px-rem, 16px) + rem;
 }
 
 
 /**
  * Helper for @media
- * @param $breakpoint - ключ из массива $breakpoints
+ * @param $breakpoint - ключ из массива vars.$breakpoints
  * @return значение ключа массива
  */
 @function screen($breakpoint) {
-  @return map-get($breakpoints, $breakpoint);
+    @return map-get(vars.$breakpoints, $breakpoint);
 }
 
 
@@ -35,12 +36,21 @@
  * Helper for @function screen
  */
 @function maxScreen($breakpoint) {
-  @return "max-width: " + map-get($breakpoints, $breakpoint);
+    @return "max-width: " + map-get(vars.$breakpoints, $breakpoint);
 }
+
 
 /**
  * Helper for @function screen
  */
 @function minScreen($breakpoint) {
-  @return "min-width: " + (map-get($breakpoints, $breakpoint) + 1px);
+    @return "min-width: " + (map-get(vars.$breakpoints, $breakpoint) + 1px);
+}
+
+
+/**
+ * Helper for get color from $theme-colors
+ */
+@function color($color-name) {
+    @return map-get(vars.$theme-colors, $color-name);
 }

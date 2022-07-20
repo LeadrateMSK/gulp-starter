@@ -1,32 +1,26 @@
-import './easy-toggler.min.js'
-import Swiper from 'swiper/bundle'
+import easySetup from "easy-toggler";
 
 document.addEventListener('DOMContentLoaded', () => {
-	"use strict"
+    'use strict'
 
-	const swiper = new Swiper('.swiper', {
-		loop: true,
-		slidesPerView: 1.2,
-		spaceBetween: 30,
+    // EasyToggler: https://github.com/rah-emil/easy-toggler
+    easySetup({
+        // html attrs
+        toggle: 'easy-toggle',
+        add: 'easy-add',
+        remove: 'easy-remove',
+        class: 'easy-class',
+        rcoe: 'easy-rcoe',
+        parallel: 'easy-parallel',
+        self: 'easy-self',
+        selfRcoe: 'easy-self-rcoe',
 
-		// If we need pagination
-		pagination: {
-			el: '.swiper-pagination',
-		},
+        // Hooks
+        onToggle($el){},
+        onAdd($el){},
+        onRemove($el){},
+        onRcoe($el){},
+    });
 
-		// Navigation arrows
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
-
-		// Responsive breakpoints
-		breakpoints: {
-			// when window width is >= 768px
-			768: {
-				slidesPerView: 3,
-				spaceBetween: 20
-			},
-		}
-	});
+    // other code...
 })

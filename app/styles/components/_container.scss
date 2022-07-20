@@ -1,0 +1,27 @@
+@use "../vars";
+@use "../functions";
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1320px;
+    padding-left: calc(#{ vars.$grid-gap-column } / 2);
+    padding-right: calc(#{ vars.$grid-gap-column } / 2);
+    margin: auto;
+
+    @media (#{ functions.maxScreen(xl) }) {
+        max-width: #{ functions.screen(lg) };
+    }
+
+    @media (#{ functions.maxScreen(lg) }) {
+        max-width: #{ functions.screen(md) };
+    }
+
+    @media (#{ functions.maxScreen(md) }) {
+        max-width: #{ functions.screen(sm) };
+    }
+
+    @media (#{ functions.maxScreen(sm) }) {
+        max-width: #{ functions.screen(xs) };
+    }
+}
