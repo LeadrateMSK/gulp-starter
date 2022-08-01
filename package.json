@@ -44,6 +44,7 @@
 	},
 	"dependencies": {
 		"bootstrap": "^5.1.3",
-		"easy-toggler": "^2.2.0"
+		"easy-toggler": "^2.2.0",
+		"lieu": "^1.1.0"
 	}
 }
