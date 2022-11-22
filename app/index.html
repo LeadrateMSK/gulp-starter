@@ -1,45 +1,59 @@
-<!--#set var="title" value="Главная страница" -->
-<!--#include virtual="/parts/head.html" -->
+<!--#set var="version" value="1.0.0" -->
 
-<main class="content">
-    <div class="container">
-        <h1 class="content__title">Gulp Starter успешно запущен &#9989;</h1>
+<!DOCTYPE html>
+<html lang="ru">
+    <!--#set var="title" value="Главная страница" -->
+    <!--#include virtual="/parts/head.html" -->
+    <body>
+        <!--#include virtual="/parts/navbar.html" -->
 
-        <br><br>
+        <main class="content">
+            <div class="container">
+                <h1 class="content__title">
+                    Gulp Starter успешно запущен &#9989;
+                </h1>
 
-        <h2 class="content__subtitle">Сетка</h2>
-        <h3 class="content__label">Пример с классом .cols-2</h3>
-        <div class="cols-2">
-            <div class="swiper-slide">col</div>
-            <div class="swiper-slide">col</div>
-        </div>
-        <!-- /.cols-2 -->
+                <br /><br />
 
-        <br><br>
+                <h2 class="content__subtitle">Сетка</h2>
+                <h3 class="content__label">Пример с классом .cols-2</h3>
+                <div class="cols-2">
+                    <div class="swiper-slide">col</div>
+                    <div class="swiper-slide">col</div>
+                </div>
+                <!-- /.cols-2 -->
 
-        <h3 class="content__label">Пример с классом .cols-4</h3>
-        <div class="cols-4">
-            <div class="swiper-slide">col</div>
-            <div class="swiper-slide">col</div>
-            <div class="swiper-slide">col</div>
-            <div class="swiper-slide">col</div>
-        </div>
-        <!-- /.cols-4 -->
+                <br /><br />
 
-        <br><br>
+                <h3 class="content__label">Пример с классом .cols-4</h3>
+                <div class="cols-4">
+                    <div class="swiper-slide">col</div>
+                    <div class="swiper-slide">col</div>
+                    <div class="swiper-slide">col</div>
+                    <div class="swiper-slide">col</div>
+                </div>
+                <!-- /.cols-4 -->
 
-        <h3 class="content__label">Пример с классом .cols-xxl-5 (от 1440px до 1920px)</h3>
-        <div class="cols-xxl-5">
-            <div class="swiper-slide">col</div>
-            <div class="swiper-slide">col</div>
-            <div class="swiper-slide">col</div>
-            <div class="swiper-slide">col</div>
-            <div class="swiper-slide">col</div>
-        </div>
-        <!-- /.cols-xxl-5 -->
-    </div>
-    <!-- /.container -->
-</main>
-<!-- /.content -->
+                <br /><br />
 
-<!--#include virtual="/parts/footer.html" -->
+                <h3 class="content__label">
+                    Пример с классом .cols-xxl-5 (от 1440px до 1920px)
+                </h3>
+                <div class="cols-xxl-5">
+                    <div class="swiper-slide">col</div>
+                    <div class="swiper-slide">col</div>
+                    <div class="swiper-slide">col</div>
+                    <div class="swiper-slide">col</div>
+                    <div class="swiper-slide">col</div>
+                </div>
+                <!-- /.cols-xxl-5 -->
+            </div>
+            <!-- /.container -->
+        </main>
+        <!-- /.content -->
+
+        <!--#include virtual="/parts/footer.html" -->
+
+        <script src="/js/app.min.js"></script>
+    </body>
+</html>
