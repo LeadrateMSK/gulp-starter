@@ -9,8 +9,8 @@
 		"last 10 versions"
 	],
 	"scripts": {
-		"start": "gulp",
-		"prod": "gulp build"
+		"dev": "gulp",
+		"build": "gulp build"
 	},
 	"license": "MIT",
 	"devDependencies": {
