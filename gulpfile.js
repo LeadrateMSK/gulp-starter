@@ -26,8 +26,8 @@ import gutil         from 'gulp-util'
 function browsersync() {
 	browserSync.init({
 		server: {
-			baseDir: 'app/',
-			middleware: bssi({ baseDir: 'app/', ext: '.html' })
+			baseDir: 'src/',
+			middleware: bssi({ baseDir: 'src/', ext: '.html' })
 		},
 		ghostMode: { clicks: false },
 		notify: false,
@@ -36,7 +36,7 @@ function browsersync() {
 }
 
 function scripts() {
-	return src(['app/js/*.js', '!app/js/*.min.js'])
+	return src(['src/js/*.js', '!src/js/*.min.js'])
 		.pipe(webpackStream({
 			mode: 'production',
 			performance: { hints: false },
@@ -85,12 +85,12 @@ function scripts() {
 			this.emit('end')
 		})
 		.pipe(concat('app.min.js'))
-		.pipe(dest('app/js'))
+		.pipe(dest('src/js'))
 		.pipe(browserSync.stream())
 }
 
 function styles() {
-	return src([`app/styles/*.*`, `!app/styles/_*.*`, `!app/styles/components/_*.*`])
+	return src([`src/styles/*.*`, `!src/styles/_*.*`, `!src/styles/components/_*.*`])
 		.pipe(sourcemaps.init())
 		.pipe(eval(`${preprocessor}glob`)())
 		.pipe(eval(preprocessor)({ 'include css': true }))
@@ -100,21 +100,21 @@ function styles() {
 		]))
 		.pipe(concat('app.min.css'))
 		.pipe(sourcemaps.write())
-		.pipe(dest('app/css'))
+		.pipe(dest('src/css'))
 		.pipe(browserSync.stream())
 }
 
 function buildcopy() {
 	return src([
-		'{app/js,app/css}/*.min.*',
-		'app/img/**/*.*',
-		'app/fonts/**/*'
-	], { base: 'app/' })
+		'{src/js,src/css}/*.min.*',
+		'src/img/**/*.*',
+		'src/fonts/**/*'
+	], { base: 'src/' })
 		.pipe(dest('public'))
 }
 
 async function buildhtml() {
-	let includes = new ssi('app/', 'public/', '/**/*.html')
+	let includes = new ssi('src/', 'public/', '/**/*.html')
 	includes.compile()
 	del('public/parts', { force: true })
 }
@@ -124,10 +124,10 @@ async function cleanpublic() {
 }
 
 function startwatch() {
-	watch(`app/styles/**/*`, { usePolling: true }, styles)
-	watch(['app/js/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts)
-	watch('app/img/src/**/*', { usePolling: true })
-	watch(`app/**/*.{${fileswatch}}`, { usePolling: true }).on('change', browserSync.reload)
+	watch(`src/styles/**/*`, { usePolling: true }, styles)
+	watch(['src/js/**/*.js', '!src/js/**/*.min.js'], { usePolling: true }, scripts)
+	watch('src/img/src/**/*', { usePolling: true })
+	watch(`src/**/*.{${fileswatch}}`, { usePolling: true }).on('change', browserSync.reload)
 }
 
 /**
